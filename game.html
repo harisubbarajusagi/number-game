@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Guess the number game</title>
+        <link rel="stylesheet" href="game.css">
+    </head>
+    <body bgcolor="green">
+    <center>
+        </textarea>
+        <marquee><h1>
+            Select a num from 1 to 10:
+        </h1>
+        </marquee><hr>
+            <textarea class="taa" rows="10" cols="20" id="ta"></textarea>
+            
+        
+        <button class="cb" onclick="rn()">
+            check
+        </button>
+        <div class="divv">
+            <h3 class="sp" id="dd">
+                Score=0/0
+            </h3>
+        </div>
+        <h2 id="pid">Guess the number</h2>
+        <p id="gid"></p>
+        <script>
+            var y=3;
+            var z=0;
+            var a=0;
+            var t=0;
+            function rn()
+            {
+                var sid=document.getElementById("dd");
+                sid.textContent="Score="+t+"/"+a;
+                var id=document.getElementById("ta");
+                var val=id.value;
+                var x=Math.floor(Math.random()*10 +1);
+                if(y==3)
+                {
+                    gid.textContent="";
+                    z=x;
+                    a++;
+                    sid.textContent="Score="+t+"/"+a;
+                }
+                if(val==x&&y==3)
+                {
+                    var id=document.getElementById("pid");
+                    pid.textContent="Right answer="+val;
+                    y=3;
+                    z=0;
+                    id.value="";
+                    t++;
+                    sid.textContent="Score="+t+"/"+a;
+                    gid.textContent="Guess the number";
+                }
+                else if(y!=3&&val==z)
+                {
+                    var id=document.getElementById("pid");
+                    pid.textContent="Right answer="+val;
+                    t++;
+                    y=3;
+                    z=0;
+                    id.value="";
+                    gid.textContent="Guess the number";
+                    sid.textContent="Score="+t+"/"+a;
+                }
+                else
+                {
+                    y--;
+                    if(y>0)
+                    {
+                    pid.textContent="Try another number you have "+y+" chances";
+                    id.value="";
+                    }
+                    else
+                    {
+                    gid.textContent="Ran out of chances"+"Number was="+z;
+                    y=3;
+                    z=0;
+                    id.value="";
+                    pid.textContent="Guess the number";
+                    }
+                }
+            }
+            
+        </script>
+    </center>
+    </body>
+</html>
